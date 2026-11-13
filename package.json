@@ -1,0 +1,21 @@
+{
+  "name": "viveo-lab",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node scripts/write-vercel-output.mjs",
+    "preview": "vite preview",
+    "test": "node --test server/*.test.js"
+  },
+  "dependencies": {
+    "@elevenlabs/client": "0.12.2",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "read-excel-file": "^9.3.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.0.4",
+    "vite": "^7.1.10"
+  }
+}
