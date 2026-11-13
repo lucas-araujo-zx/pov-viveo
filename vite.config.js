@@ -24,21 +24,13 @@ function elevenLabsEntry() {
 
 export default defineConfig(({ mode }) => {
   const labEnv = loadEnv(mode, root, '')
-  const almaviva = loadEnv(mode, path.resolve(root, '../../almaviva/lab'), '')
-  // A Sofia está no workspace compartilhado por Icatu, Porto e os demos.
-  // A chave da Almaviva é de outra conta e devolve 404 para este agente.
-  const workspace = loadEnv(mode, path.resolve(root, '../../icatu/lab'), '')
   return {
     plugins: [
       elevenLabsEntry(),
       react(),
       labApiPlugin({
-        loginToken:
-          labEnv.VIVEO_LOGIN_TOKEN ||
-          labEnv.ALMAVIVA_LOGIN_TOKEN ||
-          almaviva.ALMAVIVA_LOGIN_TOKEN ||
-          labEnv.ICATU_LOGIN_TOKEN,
-        apiKey: labEnv.ELEVENLABS_API_KEY || workspace.ELEVENLABS_API_KEY,
+        loginToken: labEnv.VIVEO_LOGIN_TOKEN,
+        apiKey: labEnv.ELEVENLABS_API_KEY,
         voiceAgentId: labEnv.VIVEO_VOICE_AGENT,
       }),
     ],

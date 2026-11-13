@@ -62,11 +62,7 @@ export default async function handler(req, res) {
         body,
       },
       {
-        loginToken:
-          process.env.VIVEO_LOGIN_TOKEN ||
-          process.env.ALMAVIVA_LOGIN_TOKEN ||
-          process.env.ICATU_LOGIN_TOKEN ||
-          '',
+        loginToken: process.env.VIVEO_LOGIN_TOKEN ?? '',
         apiKey: process.env.ELEVENLABS_API_KEY ?? '',
         voiceAgentId: process.env.VIVEO_VOICE_AGENT ?? '',
       },
